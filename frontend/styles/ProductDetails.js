@@ -25,10 +25,12 @@ export const Quantity = styled.div`
   align-items: center;
   margin: 1rem 0rem;
   button {
+    cursor: pointer;
     background: transparent;
     border: none;
     display: flex;
     font-size: 1.5rem;
+    padding: 0.5rem 1rem;
   }
   p {
     width: 1rem;
