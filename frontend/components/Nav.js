@@ -3,14 +3,20 @@ import { FiShoppingBag } from 'react-icons/fi';
 import { NavStyles, NavItems } from '../styles/NavStyles';
 import Cart from './Cart';
 import { useStateContext } from '../lib/context';
+import User from './User';
+import { useUser } from '@auth0/nextjs-auth0';
+
 const { AnimatePresence, motion } = require('framer-motion');
 
 export default function Nav() {
   const { setShowCart, showCart, totalQuantities } = useStateContext();
+  const { user, error, isLoading } = useUser();
+
   return (
     <NavStyles>
       <Link href={'/'}>The Purple Sunset</Link>
       <NavItems>
+        <User />
         <div style={{ cursor: 'pointer' }} onClick={() => setShowCart(true)}>
           {totalQuantities > 0 && (
             <motion.span

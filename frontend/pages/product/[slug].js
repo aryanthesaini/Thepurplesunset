@@ -9,10 +9,18 @@ import {
 } from '../../styles/ProductDetails';
 import { AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
 import { useStateContext } from '../../lib/context';
+import toast from 'react-hot-toast';
+import { useEffect } from 'react';
 
 export default function ProductDetails() {
   //usestate
-  const { qty, increaseQty, decreaseQty, onAdd } = useStateContext();
+  const { qty, increaseQty, decreaseQty, onAdd, setQty } = useStateContext();
+
+  //reset qty
+
+  useEffect(() => {
+    setQty(1);
+  }, []);
   // console.log(qty);
 
   //Fetch slug
@@ -33,6 +41,15 @@ export default function ProductDetails() {
   // console.log(data);
   const { title, image, description, price } = data.products.data[0].attributes;
   // console.log(image);
+
+  //create a toast
+  const notify = () => {
+    toast.success(`${title} added to your cart`, {
+      duration: 1000,
+      icon: '😏',
+    });
+  };
+
   return (
     <DetailsStyle>
       <img src={image.data.attributes.formats.small.url} alt={title} />
@@ -52,7 +69,11 @@ export default function ProductDetails() {
             <AiFillPlusCircle onClick={increaseQty} />
           </button>
         </Quantity>{' '}
-        <Buy onClick={() => onAdd(data.products.data[0].attributes, qty)}>
+        <Buy
+          onClick={() => {
+            onAdd(data.products.data[0].attributes, qty);
+            notify();
+          }}>
           ADD TO CART
         </Buy>
       </ProductInfo>
