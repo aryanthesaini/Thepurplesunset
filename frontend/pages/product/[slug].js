@@ -11,6 +11,7 @@ import { AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
 import { useStateContext } from '../../lib/context';
 import toast from 'react-hot-toast';
 import { useEffect } from 'react';
+import PacmanLoader from 'react-spinners/PacmanLoader';
 
 export default function ProductDetails() {
   //usestate
@@ -36,7 +37,22 @@ export default function ProductDetails() {
 
   //check for the data coming in
 
-  if (fetching) return <p>LOADING...</p>;
+  if (fetching)
+    return (
+      <PacmanLoader
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+        color={'#000000'}
+        size={30}
+        loading={fetching}
+        aria-label='Loading Spinner'
+        data-testid='loader'
+      />
+    );
   if (error) <p>OH NO... {error.message}</p>;
   // console.log(data);
   const { title, image, description, price } = data.products.data[0].attributes;

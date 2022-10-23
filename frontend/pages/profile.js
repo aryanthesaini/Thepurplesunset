@@ -28,7 +28,7 @@ export default function Profile({ user, orders }) {
           {orders.map((order) => (
             <Order>
               <h1>Order Number: {order.id}</h1>
-              <h2>Ampunt: ₹ {order.amount / 100}</h2>
+              <h2>Amount: ₹ {order.amount / 100}</h2>
               <h2>Receipt Email: {user.email}</h2>
             </Order>
           ))}
@@ -49,6 +49,20 @@ const Order = styled.div`
   h1 {
     font-size: 1rem;
   }
+
+  @media (max-width: 768px) {
+    margin: 1rem 0rem;
+    padding: 1rem;
+    display: inline-block;
+    justify-content: space-between;
+
+    h1 {
+      font-size: 0.5rem;
+    }
+    h2 {
+      font-size: 0.5rem;
+    }
+  }
 `;
 
 const Logout = styled.button`
@@ -60,4 +74,9 @@ const Logout = styled.button`
   border: none;
   cursor: pointer;
   margin-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.7rem;
+    padding: 1rem 1rem;
+  }
 `;

@@ -14,7 +14,7 @@ export default function Nav() {
 
   return (
     <NavStyles>
-      <Link href={'/'}>The Purple Sunset</Link>
+      <Link href={'/'}>TPS</Link>
       <NavItems>
         <User />
         <div style={{ cursor: 'pointer' }} onClick={() => setShowCart(true)}>

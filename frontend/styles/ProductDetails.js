@@ -8,6 +8,15 @@ export const DetailsStyle = styled.div`
   img {
     width: 40%;
   }
+
+  @media (max-width: 768px) {
+    display: inline;
+    img {
+      width: 100%;
+    }
+  }
+  @media (max-width: 425px) {
+  }
 `;
 
 export const ProductInfo = styled.div`
@@ -17,6 +26,14 @@ export const ProductInfo = styled.div`
     font-weight: medium;
     padding: 0.5rem 1rem;
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    display: inline;
+    width: 100%;
+    h2 {
+      margin-top: 2rem;
+    }
   }
 `;
 
@@ -42,6 +59,10 @@ export const Quantity = styled.div`
   }
   svg {
     color: #494949;
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
   }
 `;
 

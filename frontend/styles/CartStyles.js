@@ -13,7 +13,6 @@ export const CartWrapper = styled(motion.div)`
   z-index: 100;
   display: flex;
   justify-content: flex-end;
-  /* display: none; */
 `;
 
 export const CartStyle = styled(motion.div)`
@@ -25,6 +24,7 @@ export const CartStyle = styled(motion.div)`
 
   @media (max-width: 768px) {
     width: 90%;
+    padding: 2rem 2rem;
   }
 `;
 
@@ -41,6 +41,13 @@ export const Card = styled(motion.div)`
     width: 8rem;
     border-radius: 5%;
   }
+  @media (max-width: 768px) {
+    padding: 1rem;
+    img {
+      width: 8rem;
+      border-radius: 5%;
+    }
+  }
 `;
 
 export const CardInfo = styled(motion.div)`
@@ -48,6 +55,10 @@ export const CardInfo = styled(motion.div)`
   div {
     display: flex;
     flex-direction: space-between;
+  }
+
+  @media (max-width: 768px) {
+    width: 40%;
   }
 `;
 

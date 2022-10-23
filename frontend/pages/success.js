@@ -28,9 +28,14 @@ export default function Success({ order }) {
         animate={{ opacity: 1, scale: 1 }}
         initial={{ opacity: 0, scale: 0.7 }}
         transition={{ duration: 0.75 }}>
-        <Image height={'900px'} src={purple} alt='Purple sunset'></Image>
-        <h2>A conformation e-mail has been sent to</h2>
-        <h2>{order.customer_details.email}</h2>
+        <Image height={'1000px'} src={purple} alt='Purple sunset'></Image>
+        <h1>
+          We will reach out to you at your given contact for your customisations
+        </h1>
+
+        <h2>
+          Check {order.customer_details.email} for your order confirmation
+        </h2>
         <InfoWrapper>
           <Address>
             <h3>Address</h3>
@@ -62,6 +67,10 @@ export default function Success({ order }) {
 
 const Wrapper = styled.div`
   margin: 5rem 15rem;
+
+  @media (max-width: 1024px) {
+    margin: 0rem;
+  }
 `;
 
 const Card = styled(motion.div)`
@@ -88,11 +97,39 @@ const Card = styled(motion.div)`
   h1 {
     margin-bottom: 0.5rem;
   }
+
+  @media (max-width: 1024px) {
+    h2 {
+      margin-bottom: 0.5rem;
+      font-size: 0.7rem;
+    }
+    h1 {
+      font-size: 1rem;
+    }
+    button {
+      color: white;
+      background: var(--primary);
+      font-size: 0.7rem;
+      font-weight: 300;
+      padding: 1rem 1rem;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+    }
+  }
 `;
 
 const Address = styled.div`
   font-size: 1rem;
   width: 100%;
+  margin-right: 2rem;
+  @media (max-width: 1024px) {
+    h2 {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+    font-size: 0.5rem;
+  }
 `;
 
 const OrderInfo = styled.div`
@@ -101,6 +138,13 @@ const OrderInfo = styled.div`
 
   div {
     padding-bottom: 1rem;
+  }
+  @media (max-width: 1024px) {
+    h2 {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+    font-size: 0.5rem;
   }
 `;
 

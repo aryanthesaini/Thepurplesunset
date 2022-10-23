@@ -3,16 +3,32 @@ import { useQuery } from 'urql';
 import Product from '../components/product';
 import { PRODUCT_QUERY } from '../lib/query';
 import { Gallery } from '../styles/Gallery';
-
+import PacmanLoader from 'react-spinners/PacmanLoader';
 export default function Home() {
   //fetch products from strapi
 
   const [results] = useQuery({ query: PRODUCT_QUERY });
   const { data, fetching, error } = results;
+  // console.log(results);
 
   //check for the data coming in
 
-  if (fetching) return <p>LOADING...</p>;
+  if (fetching)
+    return (
+      <PacmanLoader
+        style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+        }}
+        color={'#000000'}
+        size={30}
+        loading={fetching}
+        aria-label='Loading Spinner'
+        data-testid='loader'
+      />
+    );
   if (error) <p>OH NO... {error.message}</p>;
   const products = data.products.data;
 
