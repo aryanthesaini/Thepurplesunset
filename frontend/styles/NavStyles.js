@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const NavStyles = styled.nav`
+  font-weight: 300;
+  margin: 0rem 5%;
   min-height: 15vh;
   display: flex;
   justify-content: space-between;
@@ -28,6 +30,7 @@ export const NavItems = styled.div`
 
   h3 {
     font-size: 1rem;
+    font-weight: 300;
     padding: 0.25rem;
   }
 

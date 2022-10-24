@@ -22,8 +22,8 @@ export const CartStyle = styled(motion.div)`
   overflow-y: scroll;
   position: relative;
 
-  @media (max-width: 768px) {
-    width: 90%;
+  @media (max-width: 1024px) {
+    width: 85%;
     padding: 2rem 2rem;
   }
 `;
@@ -41,7 +41,7 @@ export const Card = styled(motion.div)`
     width: 8rem;
     border-radius: 5%;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     padding: 1rem;
     img {
       width: 8rem;
@@ -57,8 +57,12 @@ export const CardInfo = styled(motion.div)`
     flex-direction: space-between;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 40%;
+    h3 {
+      font-weight: 400;
+      font-size: 12px;
+    }
   }
 `;
 

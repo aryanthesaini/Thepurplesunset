@@ -22,11 +22,11 @@ export default function Profile({ user, orders }) {
   return (
     user && (
       <div>
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
+        <h2 style={{ margin: '0rem 5%', fontWeight: '400' }}>{user.name}</h2>
+        <p style={{ margin: '0rem 5%', fontWeight: '300' }}>{user.email}</p>
         <div>
           {orders.map((order) => (
-            <Order>
+            <Order key={order.id}>
               <h1>Order Number: {order.id}</h1>
               <h2>Amount: ₹ {order.amount / 100}</h2>
               <h2>Receipt Email: {user.email}</h2>
@@ -41,12 +41,13 @@ export default function Profile({ user, orders }) {
 
 const Order = styled.div`
   background: white;
-  margin: 2rem 0rem;
+  margin: 2rem 5rem;
   padding: 3rem;
   display: flex;
   justify-content: space-between;
 
   h1 {
+    font-weight: 400;
     font-size: 1rem;
   }
 
@@ -60,12 +61,14 @@ const Order = styled.div`
       font-size: 0.5rem;
     }
     h2 {
+      font-weight: 400;
       font-size: 0.5rem;
     }
   }
 `;
 
 const Logout = styled.button`
+  margin: 0rem 5%;
   color: white;
   background: var(--primary);
   font-size: 1.2rem;

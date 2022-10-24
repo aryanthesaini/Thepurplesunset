@@ -62,7 +62,6 @@ export default function ProductDetails() {
   const notify = () => {
     toast.success(`${title} added to your cart`, {
       duration: 1000,
-      icon: '😏',
     });
   };
 
