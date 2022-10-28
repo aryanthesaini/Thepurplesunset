@@ -6,16 +6,23 @@ import {
   ProductInfo,
   Quantity,
   Buy,
+  CustomName,
+  CarouselWrapper,
+  NameDiv,
 } from '../../styles/ProductDetails';
 import { AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
 import { useStateContext } from '../../lib/context';
 import toast from 'react-hot-toast';
 import { useEffect } from 'react';
 import PacmanLoader from 'react-spinners/PacmanLoader';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from 'react-responsive-carousel';
+import { v4 as uuid } from 'uuid';
 
 export default function ProductDetails() {
   //usestate
-  const { qty, increaseQty, decreaseQty, onAdd, setQty } = useStateContext();
+  const { qty, increaseQty, decreaseQty, onAdd, setQty, name, setName } =
+    useStateContext();
 
   //reset qty
 
@@ -34,7 +41,7 @@ export default function ProductDetails() {
   });
 
   const { data, fetching, error } = results;
-
+  const unique_id = uuid();
   //check for the data coming in
 
   if (fetching)
@@ -60,14 +67,26 @@ export default function ProductDetails() {
 
   //create a toast
   const notify = () => {
-    toast.success(`${title} added to your cart`, {
+    toast.success(`${title}, customised for ${name} added to your cart`, {
       duration: 1000,
     });
   };
 
+  const handleSetName = (e) => {
+    setName(e.target.value);
+  };
+
   return (
     <DetailsStyle>
-      <img src={image.data.attributes.formats.small.url} alt={title} />
+      <CarouselWrapper>
+        <Carousel showThumbs={false}>
+          {image.data.map((img) => (
+            <div key={uuid()}>
+              <img src={img.attributes.formats.small.url} alt='' />
+            </div>
+          ))}
+        </Carousel>
+      </CarouselWrapper>
       <ProductInfo>
         <h2>{title}</h2>
         <br />
@@ -84,9 +103,20 @@ export default function ProductDetails() {
             <AiFillPlusCircle onClick={increaseQty} />
           </button>
         </Quantity>{' '}
+        <NameDiv>
+          <h2> Customise the name on this order:</h2>
+
+          <CustomName
+            type='text'
+            placeholder='Name'
+            onChange={(e) => handleSetName(e)}
+          />
+        </NameDiv>
         <Buy
           onClick={() => {
-            onAdd(data.products.data[0].attributes, qty);
+            // console.log(name);
+
+            onAdd(data.products.data[0].attributes, qty, name);
             notify();
           }}>
           ADD TO CART

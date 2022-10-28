@@ -1,20 +1,28 @@
 import styled from 'styled-components';
 
+export const CarouselWrapper = styled.div`
+  width: 50%;
+  @media (max-width: 1028px) {
+    width: 100%;
+  }
+`;
+
 export const DetailsStyle = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 5rem;
   font-weight: 300;
+
   img {
-    width: 40%;
     margin: 0rem 5%;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1028px) {
     display: inline;
 
     img {
       width: 90%;
+      margin: 0rem;
     }
   }
 `;
@@ -91,4 +99,37 @@ export const Buy = styled.button`
   color: white;
   font-weight: lighter;
   border: none;
+`;
+
+export const CustomName = styled.input`
+  font-size: 1.2rem;
+  border: none;
+  background: none;
+  border-bottom: 1px solid black;
+  font-weight: 300;
+  margin-right: 5%;
+  @media (max-width: 1024px) {
+    font-size: 1rem;
+    height: 40px;
+    transform: translateY(25px);
+  }
+`;
+
+export const NameDiv = styled.div`
+  display: flex;
+
+  margin-bottom: 2rem;
+
+  h2 {
+    font-weight: 300;
+    margin-right: 2rem;
+  }
+
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: medium;
+      font-weight: 300;
+      margin-right: 1.4rem;
+    }
+  }
 `;

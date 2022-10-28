@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import { Provider, createClient } from 'urql';
 import Nav from '../components/Nav';
+import Header from '../components/Header';
 import { StateContext } from '../lib/context';
 import { UserProvider } from '@auth0/nextjs-auth0';
 import { Toaster } from 'react-hot-toast';
@@ -14,9 +15,9 @@ function MyApp({ Component, pageProps }) {
       <StateContext>
         <Provider value={client}>
           <Toaster />
+          <Header />
           <Nav />
           <Component {...pageProps} />
-          <FooterMain />
         </Provider>
       </StateContext>
     </UserProvider>

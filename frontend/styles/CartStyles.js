@@ -56,6 +56,9 @@ export const CardInfo = styled(motion.div)`
     display: flex;
     flex-direction: space-between;
   }
+  h3 {
+    margin-left: 0.6rem;
+  }
 
   @media (max-width: 1024px) {
     width: 40%;

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+const { motion } = require('framer-motion');
 
-export const ProductStyle = styled.div`
-  background-color: white;
+export const ProductStyle = styled(motion.div)`
+  background: #ffffff33;
   position: relative;
   display: flex;
   flex-direction: column;

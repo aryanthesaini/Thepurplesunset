@@ -49,7 +49,7 @@ export default function Cart() {
     await stripe.redirectToCheckout({
       sessionId: data.id,
     });
-    console.log(data);
+    // console.log(data);
   };
 
   return (
@@ -77,10 +77,11 @@ export default function Cart() {
         <Cards layout variants={cards} initial='hidden' animate='show'>
           {cartItems.length >= 1 &&
             cartItems.map((item) => {
+              // console.log(item);
               return (
                 <Card layout variants={card} key={item.slug}>
                   <img
-                    src={item.image.data.attributes.formats.thumbnail.url}
+                    src={item.image.data[0].attributes.formats.thumbnail.url}
                     alt={item.title}
                   />
                   <CardInfo>
@@ -94,6 +95,7 @@ export default function Cart() {
                         <AiFillMinusCircle />
                       </button>
                       <p> {item.quantity} </p>
+                      {/* <p> {item.name} </p> */}
                       <button
                         onClick={() => {
                           onAdd(item, 1);

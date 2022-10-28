@@ -9,6 +9,8 @@ export const StateContext = ({ children }) => {
   const [qty, setQty] = useState(1);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [tags, setTags] = useState('All');
+  const [name, setName] = useState('');
   //increase the number of products
 
   const increaseQty = () => {
@@ -27,7 +29,7 @@ export const StateContext = ({ children }) => {
   };
 
   //add product to cart
-  const onAdd = (product, quantity) => {
+  const onAdd = (product, quantity, name) => {
     //increase total price
 
     setTotalPrice((prev) => prev + product.price * quantity);
@@ -41,12 +43,15 @@ export const StateContext = ({ children }) => {
       setCartItems(
         cartItems.map((item) =>
           item.slug === product.slug
-            ? { ...exist, quantity: exist.quantity + quantity }
+            ? { ...exist, quantity: exist.quantity + quantity, name: name }
             : item
         )
       );
     } else {
-      setCartItems([...cartItems, { ...product, quantity: quantity }]);
+      setCartItems([
+        ...cartItems,
+        { ...product, quantity: quantity, name: name },
+      ]);
     }
   };
 
@@ -88,6 +93,10 @@ export const StateContext = ({ children }) => {
         totalQuantities,
         totalPrice,
         setQty,
+        tags,
+        setTags,
+        name,
+        setName,
       }}>
       {children}
     </ShopContext.Provider>

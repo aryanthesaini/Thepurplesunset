@@ -8,6 +8,7 @@ query{
         description
         price
         slug
+        tag
         image{
           data{
             attributes{

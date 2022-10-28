@@ -1,5 +1,7 @@
-import styled from 'styled-components';
-
+import { Footer, Container, Row, ColFooter } from '../styles/Footer';
+import Image from 'next/image';
+import purple2 from '../public/purple2.jpg';
+import purple3 from '../public/purple3.jpg';
 import {
   IoLogoInstagram,
   IoLogoFacebook,
@@ -7,15 +9,47 @@ import {
   IoMailOutline,
 } from 'react-icons/io5';
 import { useRouter } from 'next/router';
+
 export default function FooterMain() {
   const route = useRouter();
-
   return (
     <Footer>
       <Container>
         <Row>
           <ColFooter>
-            <h4>Reach out to us</h4>
+            <Image src={purple2} />
+          </ColFooter>
+          <ColFooter>
+            <h1>THE PURPLE SUNSET</h1>
+            <p>
+              The Purple Sunset is a story of a girl who coloured her skies
+              purple, no matter how many times people told her not to, told her
+              that purple doesn&apos;t belong to evening sky falls. Art has
+              always been her way to rebel, revolt, and her way to love. It is
+              through art that she realised that sunsets aren&apos;t supposed to
+              be the sad endings to dying skies as her childhood self imagined
+              them to be, so she made them her beginnings.{' '}
+            </p>
+          </ColFooter>
+        </Row>
+        <Row
+          className='instaPic'
+          onClick={() => {
+            route.push('https://www.instagram.com/thepurplesunset.in/?hl=en');
+          }}>
+          <div className='instaDetail'>
+            FIND US ON INSTAGRAM <br />
+            <div className='instaLogo'>
+              {' '}
+              <IoLogoInstagram />
+            </div>
+          </div>
+          <br />
+        </Row>
+        <Row>
+          <ColFooter
+            style={{ width: '100%', marginTop: '2rem', marginBottom: '2rem' }}>
+            <h4 style={{ color: 'black' }}>Or reach out to us on</h4>
             <div className='social-links'>
               <a href='#'>
                 <IoLogoInstagram
@@ -36,7 +70,7 @@ export default function FooterMain() {
               <a href='#'>
                 <IoLogoWhatsapp
                   onClick={() => {
-                    route.push('https://wa.me/9582875455');
+                    route.push('https://wa.me/919582875455');
                   }}
                 />
               </a>
@@ -54,97 +88,3 @@ export default function FooterMain() {
     </Footer>
   );
 }
-
-const Footer = styled.div`
-  margin-top: 30rem;
-  background-color: #24262b;
-  padding: 30px 0;
-`;
-
-const Container = styled.div`
-  max-width: 1170px;
-  margin: auto;
-`;
-const Row = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const ColFooter = styled.div`
-  width: 25%;
-  padding: 0 15px;
-  h4 {
-    font-size: 18px;
-    color: #ffffff;
-    text-transform: capitalize;
-    margin-bottom: 35px;
-    font-weight: 300;
-    position: relative;
-  }
-  h4::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -10px;
-    background-color: #e91e63;
-    height: 2px;
-    box-sizing: border-box;
-    width: 50px;
-  }
-  ul li:not(:last-child) {
-    margin-bottom: 10px;
-  }
-  ul li a {
-    font-size: 16px;
-    text-transform: capitalize;
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 300;
-    color: #bbbbbb;
-    display: block;
-    transition: all 0.3s ease;
-  }
-  ul li a:hover {
-    color: #ffffff;
-    padding-left: 8px;
-  }
-  .social-links a {
-    display: inline-block;
-    height: 40px;
-    width: 40px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin: 0 10px 10px 0;
-    text-align: center;
-    line-height: 40px;
-    border-radius: 50%;
-    color: #ffffff;
-    font-size: 2.5rem;
-    transition: all 0.5s ease;
-  }
-  .social-links a:hover {
-    color: #24262b;
-    background-color: #ffffff;
-  }
-  @media (max-width: 767px) {
-    width: 50%;
-    margin-bottom: 30px;
-
-    .social-links a {
-      display: inline-block;
-      height: 30px;
-      width: 30px;
-      background-color: rgba(255, 255, 255, 0.2);
-      margin: 0 10px 10px 0;
-      text-align: center;
-      line-height: 40px;
-      border-radius: 50%;
-      color: #ffffff;
-      font-size: 2rem;
-      transition: all 0.5s ease;
-    }
-  }
-
-  @media (max-width: 574px) {
-    width: 100%;
-  }
-`;

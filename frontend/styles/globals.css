@@ -6,9 +6,15 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
   /* margin: 0rem 5%; */
+
   background: #f1f1f1;
   --primary: #2d2d2d;
   --secondary: #535353;
+
+  background-image: linear-gradient(
+    rgba(244, 235, 235, 0.753),
+    rgba(163, 8, 202, 0.1)
+  );
 }
 
 h2 {

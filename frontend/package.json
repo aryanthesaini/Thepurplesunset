@@ -20,10 +20,12 @@
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.6.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-spinners": "^0.13.6",
     "stripe": "^10.14.0",
     "styled-components": "^5.3.6",
-    "urql": "^3.0.3"
+    "urql": "^3.0.3",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "eslint": "8.25.0",
