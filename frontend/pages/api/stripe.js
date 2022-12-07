@@ -22,9 +22,9 @@ export default async function handler(req, res) {
           allow_promotion_codes: true,
           shipping_options: [
             {
-              shipping_rate: 'shr_1LvNkySFpNw6dEssj6PER6Gd',
+              shipping_rate: 'shr_1M2gymSFpNw6dEssqkajhY5b',
             },
-            { shipping_rate: 'shr_1LvNzxSFpNw6dEss08hn4J0g' },
+            { shipping_rate: 'shr_1M2h0CSFpNw6dEss7c8iUaVs' },
           ],
 
           line_items: req.body.map((item) => {
@@ -68,9 +68,9 @@ export default async function handler(req, res) {
           allow_promotion_codes: true,
           shipping_options: [
             {
-              shipping_rate: 'shr_1LvNkySFpNw6dEssj6PER6Gd',
+              shipping_rate: 'shr_1M2h0CSFpNw6dEss7c8iUaVs',
             },
-            { shipping_rate: 'shr_1LvNzxSFpNw6dEss08hn4J0g' },
+            { shipping_rate: 'shr_1M2gymSFpNw6dEssqkajhY5b' },
           ],
           line_items: req.body.map((item) => {
             return {

@@ -26,11 +26,11 @@ export default function Nav() {
 const HeaderStyle = styled(motion.div)`
   height: 15vh;
   background: linear-gradient(
-    90deg,
-    rgba(226, 197, 228, 1) 0%,
-    rgba(221, 132, 215, 1) 53%,
-    rgba(189, 161, 209, 1) 100%
+    180deg,
+    hsla(197, 14%, 57%, 1) 0%,
+    hsla(192, 17%, 94%, 1) 100%
   );
+
   font-weight: 300;
 
   @media (max-width: 768px) {

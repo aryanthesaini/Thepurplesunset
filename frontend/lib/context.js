@@ -11,6 +11,7 @@ export const StateContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [tags, setTags] = useState('All');
   const [name, setName] = useState('');
+  const [showItems, setShowItems] = useState(true);
   //increase the number of products
 
   const increaseQty = () => {
@@ -97,6 +98,8 @@ export const StateContext = ({ children }) => {
         setTags,
         name,
         setName,
+        showItems,
+        setShowItems,
       }}>
       {children}
     </ShopContext.Provider>

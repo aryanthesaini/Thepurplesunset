@@ -46,6 +46,7 @@ export default function Cart() {
     });
 
     const data = await response.json();
+
     await stripe.redirectToCheckout({
       sessionId: data.id,
     });

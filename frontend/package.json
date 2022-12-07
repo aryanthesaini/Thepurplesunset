@@ -24,6 +24,7 @@
     "react-spinners": "^0.13.6",
     "stripe": "^10.14.0",
     "styled-components": "^5.3.6",
+    "typewriter-effect": "^2.19.0",
     "urql": "^3.0.3",
     "uuidv4": "^6.2.13"
   },

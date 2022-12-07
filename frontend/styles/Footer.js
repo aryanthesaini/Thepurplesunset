@@ -2,12 +2,10 @@ import styled from 'styled-components';
 
 export const Footer = styled.div`
   margin-top: 20rem;
-  background: rgb(226, 197, 228);
   background: linear-gradient(
     90deg,
-    rgba(226, 197, 228, 1) 0%,
-    rgba(221, 132, 215, 1) 53%,
-    rgba(189, 161, 209, 1) 100%
+    hsla(332, 53%, 82%, 1) 0%,
+    hsla(176, 57%, 89%, 1) 100%
   );
 `;
 
